@@ -1,4 +1,7 @@
+#ifdef _WIN32
 #include <windows.h>
+#endif
+
 #include <GL/glut.h>
 
 void display() {
@@ -6,14 +9,11 @@ void display() {
     glOrtho(-4, 4, -4, 4, -4, 4);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    glBegin(GL_LINE_STRIP);
-    glColor3f(1.0f, 0.0f, 0.0f);
-    glVertex2f(0, 3);
-    glVertex2f(0, -3);
-
+    glBegin(GL_TRIANGLES);
     glColor3f(0.0f, 1.0f, 0.0f);
-    glVertex2f(3, 0);
-    glVertex2f(-3, 0);
+    glVertex2f(-2.0f, -2.0f);
+    glVertex2f(2.0f, -2.0f);
+    glVertex2f(-2.0f, 2.0f);
     glEnd();
 
     glFlush();
@@ -21,7 +21,7 @@ void display() {
 
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
-    glutCreateWindow("Simple Line Strip");
+    glutCreateWindow("Triângulo Simples");
     glutInitWindowSize(320, 320);
     glutInitWindowPosition(50, 50);
     glutDisplayFunc(display);

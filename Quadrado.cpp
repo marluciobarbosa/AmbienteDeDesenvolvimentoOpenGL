@@ -1,4 +1,6 @@
+#ifdef _WIN32
 #include <windows.h>
+#endif
 #include <GL/glut.h>
 
 void display() {
@@ -19,7 +21,7 @@ void display() {
 
 int main(int argc, char** argv) {
   glutInit(&argc, argv);
-  glutCreateWindow("Simple Square");
+  glutCreateWindow("Quadrado Simples");
   glutInitWindowSize(320, 320);
   glutInitWindowPosition(50, 50);
   glutDisplayFunc(display);
